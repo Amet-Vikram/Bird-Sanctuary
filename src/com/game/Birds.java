@@ -2,26 +2,24 @@ package com.game;
 
 import java.util.Objects;
 
-public abstract class Birds {
-
+public class Birds {
     enum Color{
         RED, GREEN, BLUE, WHITE, YELLOW, BROWN, BLACK_WHITE, BLACK
     }
-
     String id;
     String name;
     Color color;
-
-    Birds(String id){
-        this.id = id;
-    }
+    boolean canSwim;
+    boolean canFly;
 
     @Override
     public String toString() {
         return "Birds{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
+                "ID ='" + id + '\'' +
+                ", Name ='" + name + '\'' +
+                ", color =" + color +
+                ", Can Swim =" + canSwim +
+                ", Can Fly =" + canFly +
                 '}';
     }
 
@@ -29,8 +27,16 @@ public abstract class Birds {
         System.out.println(getClass().getSimpleName() + " Eats.");
     }
 
-    public void birdFunc(){
-        System.out.println("Exclusive to Birds. \n");
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     @Override
@@ -45,14 +51,5 @@ public abstract class Birds {
     public int hashCode() {
         return Objects.hash(id, name, color);
     }
-
-
-//    void fly(){
-//        System.out.println(getClass().getSimpleName() + " is Flying");
-//    }
-//
-//    void swim(){
-//        System.out.println(getClass().getSimpleName() + " Swims");
-//    }
 
 }
